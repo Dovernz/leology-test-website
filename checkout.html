@@ -6,7 +6,9 @@
   <title>Checkout — LearnHub</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header class="nav">
   <a class="logo" href="index.html">Learn<span>Hub</span></a>
   <a href="index.html">← Quay lại</a>
@@ -15,26 +17,91 @@
 <main class="checkout-page">
   <div class="checkout-card">
     <span class="eyebrow">CHECKOUT</span>
+
     <h1>Đăng ký khóa học</h1>
-    <p class="muted">Đây là checkout giả lập để luyện tracking. Không có giao dịch thật.</p>
+
+    <p class="muted">
+      Đây là checkout giả lập để luyện tracking. Không có giao dịch thật.
+    </p>
 
     <form id="checkoutForm">
-      <label>Họ và tên<input id="name" type="text" placeholder="Nguyễn Văn A" required></label>
-      <label>Email<input id="email" type="email" placeholder="example@email.com" required></label>
-      <label>Số điện thoại<input id="phone" type="tel" placeholder="0901234567" required></label>
-      <label>Khóa học
+
+      <label>
+        Họ và tên
+        <input
+          id="name"
+          type="text"
+          placeholder="Nguyễn Văn A"
+          required
+        >
+      </label>
+
+      <label>
+        Email
+        <input
+          id="email"
+          type="email"
+          placeholder="example@email.com"
+          required
+        >
+      </label>
+
+      <label>
+        Số điện thoại
+        <input
+          id="phone"
+          type="tel"
+          placeholder="0901234567"
+          required
+        >
+      </label>
+
+      <label>
+        Khóa học
+
         <select id="courseSelect">
-          <option value="performance-101" data-price="699000">Performance Marketing 101 — 699.000đ</option>
-          <option value="marketing-101" data-price="499000">Marketing Fundamentals — 499.000đ</option>
-          <option value="analytics-101" data-price="599000">Marketing Analytics 101 — 599.000đ</option>
+
+          <option
+            value="performance-101"
+            data-price="699000"
+          >
+            Performance Marketing 101 — 699.000đ
+          </option>
+
+          <option
+            value="marketing-101"
+            data-price="499000"
+          >
+            Marketing Fundamentals — 499.000đ
+          </option>
+
+          <option
+            value="analytics-101"
+            data-price="599000"
+          >
+            Marketing Analytics 101 — 599.000đ
+          </option>
+
         </select>
       </label>
-      <div class="order-total"><span>Tổng cộng</span><strong id="total">699.000đ</strong></div>
-      <button class="btn full" type="submit">Hoàn tất đăng ký</button>
+
+      <div class="order-total">
+        <span>Tổng cộng</span>
+        <strong id="total">699.000đ</strong>
+      </div>
+
+      <button
+        class="btn full"
+        type="submit"
+      >
+        Hoàn tất đăng ký
+      </button>
+
     </form>
   </div>
 </main>
+
 <script src="script.js"></script>
-  <script src="script.js"></script>
+
 </body>
 </html>
