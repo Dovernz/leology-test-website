@@ -5,7 +5,7 @@
   Website này là static site nên có thể chạy trên GitHub Pages.
 */
 
-const META_PIXEL_ID = "YOUR_PIXEL_ID";
+const META_PIXEL_ID = "1095959689843566";
 
 if (META_PIXEL_ID !== "YOUR_PIXEL_ID") {
   !function(f,b,e,v,n,t,s){
