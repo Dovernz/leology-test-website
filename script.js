@@ -1,5 +1,6 @@
 const META_PIXEL_ID = "1095959689843566";
 
+// Khởi tạo Meta Pixel
 !function(f,b,e,v,n,t,s){
   if(f.fbq)return;
   n=f.fbq=function(){
@@ -20,14 +21,15 @@ const META_PIXEL_ID = "1095959689843566";
 fbq("init", META_PIXEL_ID);
 fbq("track", "PageView");
 
+// Hàm chuẩn hóa để gửi dữ liệu về Meta
 function track(eventName, params = {}) {
-  console.log("[META SIMULATION]", eventName, params);
+  console.log("[META] Đang gửi sự kiện:", eventName, params);
   if (typeof fbq === "function") {
     fbq("track", eventName, params);
   }
 }
 
-/* COURSE PAGE */
+/* ================= COURSE PAGE ================= */
 if (location.pathname.endsWith("course.html")) {
   const params = new URLSearchParams(location.search);
   const course = params.get("course") || "performance-101";
@@ -44,6 +46,7 @@ if (location.pathname.endsWith("course.html")) {
   if (title) title.textContent = data[0];
   if (price) price.textContent = data[1].toLocaleString("vi-VN") + "đ";
 
+  // Bắn sự kiện ViewContent (Xem trang sản phẩm)
   track("ViewContent", {
     content_name: data[0],
     content_ids: [course],
@@ -59,6 +62,7 @@ if (location.pathname.endsWith("course.html")) {
       localStorage.setItem("selectedCourse", course);
       localStorage.setItem("selectedPrice", data[1]);
 
+      // Bắn sự kiện AddToCart tự động nhận diện đúng tên/giá khóa học
       track("AddToCart", {
         content_name: data[0],
         content_ids: [course],
@@ -67,12 +71,12 @@ if (location.pathname.endsWith("course.html")) {
         currency: "VND"
       });
 
-      alert("Đã thêm khóa học vào giỏ hàng (simulation).");
+      alert("Đã thêm khóa học " + data[0] + " vào giỏ hàng!");
     });
   }
 }
 
-/* CHECKOUT PAGE */
+/* ================= CHECKOUT PAGE ================= */
 if (location.pathname.endsWith("checkout.html")) {
   const select = document.getElementById("courseSelect");
 
@@ -125,7 +129,7 @@ if (location.pathname.endsWith("checkout.html")) {
   }
 }
 
-/* SUCCESS PAGE */
+/* ================= SUCCESS PAGE ================= */
 if (location.pathname.endsWith("success.html")) {
   const order = JSON.parse(localStorage.getItem("lastPurchase") || "{}");
   const orderId = document.getElementById("orderId");
@@ -134,20 +138,3 @@ if (location.pathname.endsWith("success.html")) {
     orderId.textContent = order.orderId;
   }
 }
-document.addEventListener("DOMContentLoaded", function () {
-  const addToCartBtn = document.getElementById("addToCartBtn");
-
-  if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", function () {
-      fbq("track", "AddToCart", {
-        content_name: "Performance Marketing 101",
-        content_ids: ["performance-101"],
-        content_type: "product",
-        value: 699000,
-        currency: "VND"
-      });
-
-      console.log("[META SIMULATION] AddToCart sent");
-    });
-  }
-});
