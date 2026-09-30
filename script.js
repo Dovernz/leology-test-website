@@ -17,6 +17,8 @@ const META_PIXEL_ID = "1095959689843566";
   s.parentNode.insertBefore(t,s);
 }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
 
+fbq("init", META_PIXEL_ID);
+fbq("track", "PageView");
 
 function track(eventName, params = {}) {
   console.log("[META SIMULATION]", eventName, params);
