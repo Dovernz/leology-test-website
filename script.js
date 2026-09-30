@@ -132,3 +132,20 @@ if (location.pathname.endsWith("success.html")) {
     orderId.textContent = order.orderId;
   }
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const addToCartBtn = document.getElementById("addToCartBtn");
+
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", function () {
+      fbq("track", "AddToCart", {
+        content_name: "Performance Marketing 101",
+        content_ids: ["performance-101"],
+        content_type: "product",
+        value: 699000,
+        currency: "VND"
+      });
+
+      console.log("[META SIMULATION] AddToCart sent");
+    });
+  }
+});
